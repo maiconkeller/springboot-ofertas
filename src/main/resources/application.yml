@@ -1,9 +1,15 @@
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost/percentoff
+#    username: root
+#    password: root
+ 
 spring:
   datasource:
-    url: jdbc:mysql://localhost/percentoff
-    username: root
-    password: root
-    
+    url: jdbc:mysql://y2w3wxldca8enczv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com/xtwsl3yvrv9na89m
+    username: lub3299hkzv9gq4y
+    password: hz56jy2yp8u071vy
+        
 #  jpa:
 #    show-sql: true
 #    hibernate:
