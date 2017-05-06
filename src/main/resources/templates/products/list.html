@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/default">
+<head>
+	<title>Produtos</title>
+</head>
+<body>
+
+	<section layout:fragment="conteudo">
+
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th class="text-center">Produto</th>
+					<th class="text-center">Preço Ant.</th>
+					<th class="text-center">Preço Atual</th>
+					<th class="text-center">Desconto</th>
+					<th class="text-center">Links</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product : ${products}">
+					<td class="text-center">
+						<span th:text="${product.title}"></span>
+					</td>
+					<td class="text-center" th:text="|R$ ${product.oldPrice}|"></td>
+					<td class="text-center" th:text="|R$ ${product.bestPrice}|"></td>
+					<td class="text-center" th:text="|${product.discount}%|"></td>
+					<td class="text-center">
+						<button class="btn btn-default" th:attr="data-clipboard-text=${product.url}">Copiar</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="5">
+						Quantidade de ofertas: <span th:text="${#lists.size(products)}"></span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<script th:src="@{/js/clipboard.min.js}"></script>
+		<script type="text/javascript">
+			new Clipboard('.btn');		
+		</script>
+		
+	</section>
+
+</body>
+</html>
